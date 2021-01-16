@@ -14,10 +14,25 @@
                     <view key="view" contentMode="scaleToFill" id="BNg-gA-Y3c">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="kV2-af-qfI">
+                                <rect key="frame" x="0.0" y="44" width="414" height="769"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                            </tableView>
+                        </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="kV2-af-qfI" firstAttribute="leading" secondItem="Me0-SO-GKe" secondAttribute="leading" id="7LE-Kq-GRk"/>
+                            <constraint firstItem="Me0-SO-GKe" firstAttribute="trailing" secondItem="kV2-af-qfI" secondAttribute="trailing" id="8ir-T5-raW"/>
+                            <constraint firstItem="Me0-SO-GKe" firstAttribute="bottom" secondItem="kV2-af-qfI" secondAttribute="bottom" id="9KY-fc-u8V"/>
+                            <constraint firstItem="kV2-af-qfI" firstAttribute="top" secondItem="Me0-SO-GKe" secondAttribute="top" id="fVM-og-cNU"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="Me0-SO-GKe"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="ホーム" image="home" id="3B5-rm-5J3"/>
+                    <connections>
+                        <outlet property="tableView" destination="kV2-af-qfI" id="6Qd-J1-sav"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1Mn-Fd-su0" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -30,7 +45,47 @@
                     <view key="view" contentMode="scaleToFill" id="qtH-3W-PWY">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="I9Z-MY-m5t">
+                                <rect key="frame" x="57" y="174" width="300" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="300" id="5lq-mb-9CG"/>
+                                </constraints>
+                                <state key="normal" title="カメラ" backgroundImage="btn"/>
+                                <connections>
+                                    <action selector="handleCameraButton:" destination="ARy-Qt-dVB" eventType="touchUpInside" id="xTW-BD-eon"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sDM-aK-AKU">
+                                <rect key="frame" x="57" y="224" width="300" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="300" id="7P0-Ti-Twp"/>
+                                </constraints>
+                                <state key="normal" title="キャンセル" backgroundImage="btn"/>
+                                <connections>
+                                    <action selector="handleCancelButton:" destination="ARy-Qt-dVB" eventType="touchUpInside" id="oso-u4-7qD"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XSm-5c-f2V">
+                                <rect key="frame" x="57" y="124" width="300" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="300" id="3lq-O9-Pvl"/>
+                                </constraints>
+                                <state key="normal" title="ライブラリ" backgroundImage="btn"/>
+                                <connections>
+                                    <action selector="handleLibraryButton:" destination="ARy-Qt-dVB" eventType="touchUpInside" id="9ZI-g6-tqC"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="I9Z-MY-m5t" firstAttribute="top" secondItem="XSm-5c-f2V" secondAttribute="bottom" constant="10" id="0Gh-cv-9wG"/>
+                            <constraint firstItem="XSm-5c-f2V" firstAttribute="top" secondItem="clC-dg-LoA" secondAttribute="top" constant="80" id="0ri-9N-1dC"/>
+                            <constraint firstItem="I9Z-MY-m5t" firstAttribute="centerX" secondItem="qtH-3W-PWY" secondAttribute="centerX" id="bdd-Hj-0HJ"/>
+                            <constraint firstItem="XSm-5c-f2V" firstAttribute="centerX" secondItem="qtH-3W-PWY" secondAttribute="centerX" id="fYZ-bz-Ius"/>
+                            <constraint firstItem="sDM-aK-AKU" firstAttribute="top" secondItem="I9Z-MY-m5t" secondAttribute="bottom" constant="10" id="oVG-eu-fcL"/>
+                            <constraint firstItem="sDM-aK-AKU" firstAttribute="centerX" secondItem="qtH-3W-PWY" secondAttribute="centerX" id="xhC-Zy-OaP"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="clC-dg-LoA"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="投稿" image="camera" id="blm-bC-vy0"/>
@@ -62,7 +117,7 @@
                                 </constraints>
                                 <state key="normal" title="表示名を変更" backgroundImage="btn"/>
                                 <connections>
-                                    <action selector="settingDisplayButton:" destination="eh4-tS-cij" eventType="touchUpInside" id="zcT-7e-GU0"/>
+                                    <action selector="handleChangeButton:" destination="eh4-tS-cij" eventType="touchUpInside" id="UWa-Rf-UcN"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bzB-lB-Khb">
@@ -72,7 +127,7 @@
                                 </constraints>
                                 <state key="normal" title="ログアウト" backgroundImage="btn"/>
                                 <connections>
-                                    <action selector="logoutButton:" destination="eh4-tS-cij" eventType="touchUpInside" id="63O-W3-Ihr"/>
+                                    <action selector="handleLogoutButton:" destination="eh4-tS-cij" eventType="touchUpInside" id="zay-wT-lbo"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -89,7 +144,7 @@
                     </view>
                     <tabBarItem key="tabBarItem" title="設定" image="setting" id="LOB-Bq-2Zt"/>
                     <connections>
-                        <outlet property="settingTextField" destination="gFN-sD-RzN" id="oaQ-Wp-GSK"/>
+                        <outlet property="displayNameTextField" destination="gFN-sD-RzN" id="q43-qw-Vqc"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dRR-fd-eEy" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -103,13 +158,62 @@
                     <view key="view" contentMode="scaleToFill" id="4AI-8W-st0">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gjz-9R-xgs">
+                                <rect key="frame" x="57" y="204" width="300" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="300" id="knE-SD-zNZ"/>
+                                </constraints>
+                                <state key="normal" title="投稿" backgroundImage="btn"/>
+                                <connections>
+                                    <action selector="handlePostButton:" destination="aNc-fu-e33" eventType="touchUpInside" id="VOy-gd-ras"/>
+                                </connections>
+                            </button>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="キャプション" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ngJ-Oj-NJi">
+                                <rect key="frame" x="10" y="150" width="394" height="34"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="4xx-1I-iQd">
+                                <rect key="frame" x="10" y="64" width="120" height="120"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="120" id="7bw-RQ-JKK"/>
+                                    <constraint firstAttribute="height" constant="120" id="xig-2O-HPl"/>
+                                </constraints>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="F1m-Qh-yd8">
+                                <rect key="frame" x="57" y="254" width="300" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="300" id="ikd-gF-hL5"/>
+                                </constraints>
+                                <state key="normal" title="キャンセル" backgroundImage="btn"/>
+                                <connections>
+                                    <action selector="handleCancelButton:" destination="aNc-fu-e33" eventType="touchUpInside" id="ktv-BO-yc2"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="gjz-9R-xgs" firstAttribute="top" secondItem="ngJ-Oj-NJi" secondAttribute="bottom" constant="20" id="4ZE-Ix-FlM"/>
+                            <constraint firstItem="4xx-1I-iQd" firstAttribute="leading" secondItem="NLm-D0-fV7" secondAttribute="leading" constant="10" id="5k0-Eh-phT"/>
+                            <constraint firstItem="NLm-D0-fV7" firstAttribute="trailing" secondItem="ngJ-Oj-NJi" secondAttribute="trailing" constant="10" id="87n-5Y-Wbd"/>
+                            <constraint firstItem="F1m-Qh-yd8" firstAttribute="top" secondItem="gjz-9R-xgs" secondAttribute="bottom" constant="10" id="DXp-Mq-wjz"/>
+                            <constraint firstItem="ngJ-Oj-NJi" firstAttribute="bottom" secondItem="4xx-1I-iQd" secondAttribute="bottom" id="PgG-5s-Msf"/>
+                            <constraint firstItem="ngJ-Oj-NJi" firstAttribute="leading" secondItem="NLm-D0-fV7" secondAttribute="leading" constant="10" id="bmI-4G-Xrd"/>
+                            <constraint firstItem="F1m-Qh-yd8" firstAttribute="centerX" secondItem="4AI-8W-st0" secondAttribute="centerX" id="drh-Td-4In"/>
+                            <constraint firstItem="gjz-9R-xgs" firstAttribute="centerX" secondItem="4AI-8W-st0" secondAttribute="centerX" id="eTu-Gm-3Yc"/>
+                            <constraint firstItem="4xx-1I-iQd" firstAttribute="top" secondItem="NLm-D0-fV7" secondAttribute="top" constant="20" id="fTQ-Hb-cQz"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="NLm-D0-fV7"/>
                     </view>
+                    <connections>
+                        <outlet property="imageView" destination="4xx-1I-iQd" id="sd5-qN-AtG"/>
+                        <outlet property="textField" destination="ngJ-Oj-NJi" id="9U6-5K-03O"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HYV-S6-lo0" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="912" y="1566"/>
+            <point key="canvasLocation" x="911.59420289855075" y="1565.625"/>
         </scene>
         <!--Login View Controller-->
         <scene sceneID="1oB-r8-7rI">
