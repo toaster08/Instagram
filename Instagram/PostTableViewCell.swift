@@ -16,10 +16,16 @@ class PostTableViewCell: UITableViewCell {
     @IBOutlet weak var likeLabel: UILabel!
     @IBOutlet weak var dateLabel: UILabel!
     @IBOutlet weak var captionLabel: UILabel!
+    
+//    コメント用
+    @IBOutlet weak var commentsButton: UIButton!
+    @IBOutlet weak var commentsLabel: UILabel!
+    
 
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
+        
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
@@ -59,6 +65,17 @@ class PostTableViewCell: UITableViewCell {
                let buttonImage = UIImage(named: "like_none")
                self.likeButton.setImage(buttonImage, for: .normal)
            }
-       }
+        
+//      コメントがあればLabelに入れる
+        if postData.comments.count > 0 {
+            var s:String = ""
+            for i in 0...postData.comments.count - 1 {
+                s += postData.comments[i] + "\n"
+            }
+           commentsLabel.text = s
+            print(s)
+
+        }
+    }
     
 }

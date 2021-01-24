@@ -57,8 +57,6 @@ class SettingViewController: UIViewController {
            tabBarController?.selectedIndex = 0
     }
     
-    
-    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
 

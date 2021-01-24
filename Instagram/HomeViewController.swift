@@ -77,6 +77,9 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
 
         // セル内のボタンのアクションをソースコードで設定する
         cell.likeButton.addTarget(self, action:#selector(handleButton(_:forEvent:)), for: .touchUpInside)
+        
+        //　ボタンがタッチされるとLikesボタンも動作するためわけなければならない
+        cell.commentsButton.addTarget(self, action:#selector(commentsButton(_:forEvent:)), for: .touchUpInside)
 
         return cell
     }
@@ -107,6 +110,52 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
             // likesに更新データを書き込む
             let postRef = Firestore.firestore().collection(Const.PostPath).document(postData.id)
             postRef.updateData(["likes": updateValue])
+        }
+    }
+    
+    @objc func commentsButton(_ sender: UIButton, forEvent event: UIEvent) {
+        print("DEBUG_PRINT: commentsボタンがタップされました。")
+
+        // タップされたセルのインデックスを求める
+        let touch = event.allTouches?.first
+        let point = touch!.location(in: self.tableView)
+        let indexPath = tableView.indexPathForRow(at: point)
+
+        // 配列からタップされたインデックスのデータを取り出す
+        let postData = postArray[indexPath!.row]
+
+        if let  displayName = Auth.auth().currentUser?.displayName {
+            let alert = UIAlertController(
+                title: "コメント",
+                message: "入力してください",
+                preferredStyle: UIAlertController.Style.alert)
+            alert.addTextField(
+                configurationHandler: {(textField: UITextField!) in
+     
+            })
+            alert.addAction(
+                UIAlertAction(
+                    title: "Cancel",
+                    style: UIAlertAction.Style.cancel,
+                    handler: nil))
+            alert.addAction(
+                UIAlertAction(
+                    title: "OK",
+                    style: UIAlertAction.Style.default) { _ in
+                        print("\(displayName)" + ":" + "\(alert.textFields![0].text!)")
+                            
+                    if (Auth.auth().currentUser?.uid) != nil {
+                           // 更新データを作成する
+                           var updateValue: FieldValue
+                           updateValue = FieldValue.arrayUnion(["\(displayName)" + ":" + "\(alert.textFields![0].text!)"])
+                           // commentsに更新データを書き込む
+                           let postRef = Firestore.firestore().collection(Const.PostPath).document(postData.id)
+                        postRef.updateData(["comments": updateValue])
+                    }
+
+                }
+            )
+            self.present(alert, animated: true, completion: nil)
         }
     }
 }

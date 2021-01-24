@@ -31,7 +31,7 @@
                     </view>
                     <tabBarItem key="tabBarItem" title="ホーム" image="home" id="3B5-rm-5J3"/>
                     <connections>
-                        <outlet property="tableView" destination="kV2-af-qfI" id="6Qd-J1-sav"/>
+                        <outlet property="tableView" destination="kV2-af-qfI" id="oG5-R8-xtP"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1Mn-Fd-su0" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -53,7 +53,7 @@
                                 </constraints>
                                 <state key="normal" title="カメラ" backgroundImage="btn"/>
                                 <connections>
-                                    <action selector="handleCameraButton:" destination="ARy-Qt-dVB" eventType="touchUpInside" id="xTW-BD-eon"/>
+                                    <action selector="handleCameraButton:" destination="ARy-Qt-dVB" eventType="touchUpInside" id="ZLe-Iv-xeT"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sDM-aK-AKU">
@@ -63,7 +63,7 @@
                                 </constraints>
                                 <state key="normal" title="キャンセル" backgroundImage="btn"/>
                                 <connections>
-                                    <action selector="handleCancelButton:" destination="ARy-Qt-dVB" eventType="touchUpInside" id="oso-u4-7qD"/>
+                                    <action selector="handleCancelButton:" destination="ARy-Qt-dVB" eventType="touchUpInside" id="m1v-FG-ips"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XSm-5c-f2V">
@@ -73,7 +73,7 @@
                                 </constraints>
                                 <state key="normal" title="ライブラリ" backgroundImage="btn"/>
                                 <connections>
-                                    <action selector="handleLibraryButton:" destination="ARy-Qt-dVB" eventType="touchUpInside" id="9ZI-g6-tqC"/>
+                                    <action selector="handleLibraryButton:" destination="ARy-Qt-dVB" eventType="touchUpInside" id="iMO-a9-gD9"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -170,7 +170,7 @@
                                 </connections>
                             </button>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="キャプション" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ngJ-Oj-NJi">
-                                <rect key="frame" x="10" y="150" width="394" height="34"/>
+                                <rect key="frame" x="140" y="150" width="264" height="34"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
@@ -198,11 +198,12 @@
                             <constraint firstItem="4xx-1I-iQd" firstAttribute="leading" secondItem="NLm-D0-fV7" secondAttribute="leading" constant="10" id="5k0-Eh-phT"/>
                             <constraint firstItem="NLm-D0-fV7" firstAttribute="trailing" secondItem="ngJ-Oj-NJi" secondAttribute="trailing" constant="10" id="87n-5Y-Wbd"/>
                             <constraint firstItem="F1m-Qh-yd8" firstAttribute="top" secondItem="gjz-9R-xgs" secondAttribute="bottom" constant="10" id="DXp-Mq-wjz"/>
-                            <constraint firstItem="ngJ-Oj-NJi" firstAttribute="bottom" secondItem="4xx-1I-iQd" secondAttribute="bottom" id="PgG-5s-Msf"/>
-                            <constraint firstItem="ngJ-Oj-NJi" firstAttribute="leading" secondItem="NLm-D0-fV7" secondAttribute="leading" constant="10" id="bmI-4G-Xrd"/>
+                            <constraint firstItem="ngJ-Oj-NJi" firstAttribute="leading" secondItem="4xx-1I-iQd" secondAttribute="trailing" constant="10" id="Se7-Xr-EWN"/>
+                            <constraint firstItem="4xx-1I-iQd" firstAttribute="leading" secondItem="NLm-D0-fV7" secondAttribute="leading" constant="10" id="bmI-4G-Xrd"/>
                             <constraint firstItem="F1m-Qh-yd8" firstAttribute="centerX" secondItem="4AI-8W-st0" secondAttribute="centerX" id="drh-Td-4In"/>
                             <constraint firstItem="gjz-9R-xgs" firstAttribute="centerX" secondItem="4AI-8W-st0" secondAttribute="centerX" id="eTu-Gm-3Yc"/>
                             <constraint firstItem="4xx-1I-iQd" firstAttribute="top" secondItem="NLm-D0-fV7" secondAttribute="top" constant="20" id="fTQ-Hb-cQz"/>
+                            <constraint firstItem="ngJ-Oj-NJi" firstAttribute="bottom" secondItem="4xx-1I-iQd" secondAttribute="bottom" id="v3F-y7-gg6"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="NLm-D0-fV7"/>
                     </view>
