@@ -74,7 +74,8 @@ class PostTableViewCell: UITableViewCell {
             }
            commentsLabel.text = s
             print(s)
-
+        } else {
+           commentsLabel.text = ""
         }
     }
     
